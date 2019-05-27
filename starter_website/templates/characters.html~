@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Character Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      function myFunction() {
+      alert("does this work?")
+      }
+    </script>
+  </head>
+  
+  <body>
+    
+    <div class="main-story container">
+      <div id="pageTitle" align="middle">
+	<h1>This is the character page.</h1>
+      </div>
+      
+      <!--
+	  <div class="intro">
+	    <p align="middle">In the final implementation, selecting a character from the list pulls up information about them on the right side of the page</p>
+	  </div>
+    </div>
+    
+    <div>
+      <form action="">
+	<legend>Please select the character you wish to learn about:</legend>
+	<input type="radio" name="charselect" value="robertbaratheon">Robert Baratheon<br>
+	<input type="radio" name="charselect" value="tywinlannister">Tywin Lannister<br>
+	<input type="radio" name="charselect" value="cerseilannister">Cersei Lannister<br>
+	<input type="radio" name="charselect" value="jamielannister">Jamie Lannister<br>
+	<input type="radio" name="charselect" value="tyrionlannister">Tyrion Lannister<br>
+      </form>
+    </div>
+    
+    -->
+      
+      
+      <h3>Character Data</h3>
+      <table border='1'>
+	<thead>
+	  <th>Name</th>
+	  <th>Alive?</th>
+	  <th>Manner of Death</th>
+	  <th>Allegiance</th>
+	  <th>Portrayed by</th>
+	  <th>Philosophy id</th>
+	</thead>
+	<tbody>
+	  {% for r in rows %}
+	  <tr>
+	    <td> {{ r[0] }} </td>
+	    <td> {{ r[1] }} </td>
+	    <td> {{ r[2] }} </td>
+	    <td> {{ r[3] }} </td>
+	    <td> {{ r[4] }} </td>
+	    <td> {{ r[5] }} </td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </table>
+      
+      
+      
+      <button type="button" onclick="myFunction()"> Try things </button>
+      
+      <div class="footer clearfix">
+	<div class="conatainer_12">
+	  <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
+	</div>
+      </div>
+      
+      
+  </body>
+  
+</html>

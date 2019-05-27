@@ -1,0 +1,27 @@
+<h3>Edit Character:</h3>
+<!--
+<form id="character_update" action="/character_update/{{chars[0]}}" method="post">
+  <input type="hidden" name="character_id" value = "{{ chars[0] }}">
+  Name: <input type="text" name="name" value = "{{ chars[1] }}"><br>
+  Alive: <input type="text" name="alive" value = "{{ chars[2] }}"><br>
+  Manner of Death: <input type="text" name="MoD" value = "{{ chars[3] }}"><br>
+  Portrayed by: <input type="text" name="portrayal" value = "{{ chars[4] }}"><br>
+
+<!--
+  phil_id: <input name="phil_id">
+        {% for phil in phils %}
+          {{ phil[0] }}
+          {{ person[3] }}
+          {% if planet[0] == person[3] %}
+             <option selected value="{{ planet[0] }}">{{ planet[1] }}</option>
+          {% else %}
+            <option value="{{ planet[0] }}">{{ planet[1] }}</option>
+          {% endif %}
+        {% endfor %}
+    </select><br>
+    Age: <input type="number" name="age" value = "{{ person[4] }}"><br>
+
+    <input type="submit" value="Submit">
+</form>
+<br/>
+-->

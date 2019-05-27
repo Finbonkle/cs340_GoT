@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Factions Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  
+  <body>
+    
+    <div class="main-story container">
+      <div id="pageTitle" align="middle">
+	<h1>This is the factions page.</h1>
+      </div>
+
+<!--
+      <div class="intro">
+	<p align="middle">In the final implementation, selecting a faction from the list pulls up information about it on the right side of the page</p>
+      </div>
+    </div>
+    
+    <div>
+      <form action="">
+	<legend>Please select the faction you wish to learn about:</legend>
+	<input type="radio" name="factselect" value="housestark">House Stark<br>
+	<input type="radio" name="factselect" value="houselannister">House Lannister<br>
+	<input type="radio" name="factselect" value="childrenoftheforest">Children of the Forest<br>
+	<input type="radio" name="factselect" value="others">The Others<br>
+      </form>
+    </div>
+-->
+
+<h3>GoT Factions</h3>
+<table border='1'>
+  <thead>
+    <th>name</th>
+    <th>type</th>
+    <th>strengths</th>
+    <th>weaknesses</th>
+    <th>phil_id</th>
+  </thead>
+  <tbody>
+  {% for r in rows %}
+  <tr>
+    <td> {{ r[0] }} </td>
+    <td> {{ r[1] }} </td>
+    <td> {{ r[2] }} </td>
+    <td> {{ r[3] }} </td>
+    <td> {{ r[4] )) </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+    
+    <div class="footer clearfix">
+      <div class="conatainer_12">
+		<p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
+		</div>
+    </div>
+    
+    
+  </body>
+  
+</html>

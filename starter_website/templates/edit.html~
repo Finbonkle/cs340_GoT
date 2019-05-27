@@ -1,0 +1,9 @@
+<html>
+<head><title>Update Menu</title></head>
+  <h1>Character List</h1>
+  <table border='1'>
+    <thead>
+      <th>Name</th>
+      <th>char_id</th>
+    </thead>
+    <tbod

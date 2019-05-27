@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Creation Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+<body>
+
+<div class="main-story container">
+  <div id="pageTitle" align="middle">
+    <h1>This is the character edit page.</h1>
+  </div>
+  <div class="intro">
+    <p align="middle">In the final implementation, filling out the fields below will change the information associated with the selected character.</p>
+  </div>
+</div>
+
+<br>
+
+<div style="float:left; width=40%;">
+  <div class="centered">
+    <legend>Please Select a Character to Edit:</legend>
+    <form action="">
+      <input type="radio" name="chartoedit" value="roberbaratheon">Robert Baratheon<br>
+      <input type="radio" name="chartoedit" value="tywinlannister">Tywin Lannister<br>
+      <input type="radio" name="chartoedit" value="cerseilannister">Cersei Lannister<br>
+      <input type="radio" name="chartoedit" value="jamielannister">Jamie Lannister<br>
+      <input type="radio" name="chartoedit" value="tyrionlannister">Tyrion Lannister<br>
+    </form>
+  </div>
+</div>
+
+<div style="float:right; width=60%;">
+  <div class="centered">
+    <form action="">
+      <legend>Please update the following information for the selected character:</legend>
+      <input id="charname" type="input" class="form-control" placeholder="Name" name="">
+      <br>
+      <select name="aliveofdead">
+	<option value="alive">Alive</option>
+	<option value="dead">Dead</option>
+      </select>
+      <br>
+      <input id="chardeath" type="input" class="form-control" placeholder="Manner of Death" name="">
+      <br>
+      <input id="charorigin" type="input" class="form-control" placeholder="Origin" name="">
+      <br>
+      <input id="charactor" type="input" class="form-control" placeholder="Portrayed By" name="">
+    </form>
+    <div align="left">
+      <button type="button" value="submit" class="btn btn-success" onclink="">Submit</button>
+      <button type="button" value="cancel" class="btn btn-success" onclink="">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="footer clearfix">
+  <div class="conatainer_12">
+    <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
+	</div>
+</div>
+
+
+</body>
+
+</html>
