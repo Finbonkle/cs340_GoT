@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
-
+  <link rel="stylesheet" href="style.css" type="text/css" />
   <head>
     <title>Creation Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
-  
+
   <body>
-    
     <div class="main-story container">
       <div id="pageTitle" align="middle">
-	<h1>This is the character creation page.</h1>
+        <h1>This is the character creation page.</h1>
       </div>
-<!--      <div class="intro">
+      <!--      <div class="intro">
 	<p align="middle">In the final implementation, filling out the fields below will add a character with the submitted attributes.</p>
       </div> -->
     </div>
-<!--    
+    <!--    
     <div>
       <form action="">
 	<legend>Please enter the following information for character creation:</legend>
@@ -39,32 +38,39 @@
     </div>
 -->
 
-<h3>Add a Character</h3>
-<h4>Note that this page currently requires all forms to be filled out</h4>
-<form id="addcharacter" action="/create" method="post">
-  Name: <input type="text" name="name"><br>
-  Alive: <input type="radio" name="qAlive" value="yes">Yes<input type="radio" name="qAlive" value="no">No<br>
-  Manner of Death: <input type="text" name="mannerOfDeath"><br>
-  Allegiance: <input type="text" name="allegiance"><br>
-  Portrayed by: <input type="text" name="portrayal"><br>
-  Philosophy: <select name="phil_id">
-  <!-- display all philosophies inside this dropdown -->
-  {% for p in phils%}
-  <option value="{{ p[0] }}">{{ p[1] }}</option>
-  {% endfor %}
-  </select><br>
-  <input type="submit" value="submit">
-</form>
-<br>
+    <h3>Add a Character</h3>
+    <h4>Note that this page currently requires all forms to be filled out</h4>
+    <form id="addcharacter" action="/create" method="post">
+      Name: <input type="text" name="name" /><br />
+      Alive: <input type="radio" name="qAlive" value="yes" />Yes<input
+        type="radio"
+        name="qAlive"
+        value="no"
+      />No<br />
+      Manner of Death: <input type="text" name="mannerOfDeath" /><br />
+      Allegiance: <input type="text" name="allegiance" /><br />
+      Portrayed by: <input type="text" name="portrayal" /><br />
+      Philosophy:
+      <select name="phil_id">
+        <!-- display all philosophies inside this dropdown -->
+        {% for p in phils%}
+        <option value="{{ p[0] }}">{{ p[1] }}</option>
+        {% endfor %} </select
+      ><br />
+      <input class="button" type="submit" value="submit" />
+    </form>
+    <br />
 
-    
     <div class="footer clearfix">
       <div class="conatainer_12">
-	<p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
+        <p class="grid_12" align="middle">
+          <a href="index">Home Page</a> | <a href="characters">Characters</a> |
+          <a href="factions">Factions</a> |
+          <a href="philosophies">Religions and Philosophies</a> |
+          <a href="create">Add a New Character</a> |
+          <a href="edit">Edit a Character</a>
+        </p>
       </div>
     </div>
-    
-    
   </body>
-  
 </html>
