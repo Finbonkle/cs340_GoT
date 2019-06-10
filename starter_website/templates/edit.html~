@@ -6,4 +6,15 @@
       <th>Name</th>
       <th>char_id</th>
     </thead>
-    <tbod
+    <tbody>
+      {% for r in rows %}
+      <tr>
+	<td> {{ r.0 }} </td>
+	<td> {{ r[1] }} </td>
+	<td> <input type='button' name='Update' value='Update' 
+		    onclick="window.location = '/character_update/{{r[1]}}'"> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</html>

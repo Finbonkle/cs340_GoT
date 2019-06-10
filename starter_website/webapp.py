@@ -117,6 +117,14 @@ def update_char(id):
 
         return redirect('/characters')
 
+@webapp.route('/delete_char/<int:id>')
+def delete_char(id):
+    '''deletes a character with the given id'''
+    db_connection = connect_to_database()
+    query = "DELETE FROM Characters WHERE id = %s" % (id)
+    result = execute_query(db_connection, query)
+    return (str(result.rowcount) + "row deleted")
+
 
 
 
@@ -202,7 +210,7 @@ def update_people(id):
 def delete_people(id):
     '''deletes a person with the given id'''
     db_connection = connect_to_database()
-    query = "DELETE FROM bsg_people WHERE character_id = %s"
+    query = "DELETE FROM bsg_people WHERE id = %s"
     data = (id,)
 
     result = execute_query(db_connection, query, data)
