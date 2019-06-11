@@ -40,9 +40,10 @@
 -->
 
 <h3>Add a Character</h3>
+<h4>Note that this page currently requires all forms to be filled out</h4>
 <form id="addcharacter" action="/create" method="post">
   Name: <input type="text" name="name"><br>
-  <!-- Alive: <input type="boolean" ????????> -->
+  Alive: <input type="radio" name="qAlive" value="yes">Yes<input type="radio" name="qAlive" value="no">No<br>
   Manner of Death: <input type="text" name="mannerOfDeath"><br>
   Allegiance: <input type="text" name="allegiance"><br>
   Portrayed by: <input type="text" name="portrayal"><br>

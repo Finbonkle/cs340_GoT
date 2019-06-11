@@ -34,8 +34,12 @@ def fact_page():
     db_connection = connect_to_database()
     query = "SELECT name, type, strength, weakness, phil_id from Factions;"
     result = execute_query(db_connection, query).fetchall();
+
+    phil_query = "SELECT name, id from Philosophies"
+    phil_results = execute_query(db_connection, phil_query).fetchall();
+
     print(result)
-    return render_template('factions.html', rows=result)
+    return render_template('factions.html', rows=result, phil=phil_results)
 
 @webapp.route('/philosophies')
 def phil_page():
@@ -53,7 +57,7 @@ def create_page():
         query = "SELECT id, name from Philosophies;"
         result = execute_query(db_connection, query).fetchall();
         print(result)
-        return render_template('create.html', phils = result)
+        return render_template('create.html', phils=result)
 
     elif request.method == 'POST':
         print("Add new people!");

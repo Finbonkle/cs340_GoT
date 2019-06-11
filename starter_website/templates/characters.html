@@ -9,7 +9,14 @@
       function myFunction() {
       alert("does this work?")
       }
+      <!-- Citation: stackoverflow.com/questions/2359805/using-javascript-to-check-if-a-html-table-cell-is-empty-->
+      function emptyCellCheck(el) {
+      return (/^(\s|&nbsp;)*$/.test(el.innerHTML);
+      }
     </script>
+    <style>
+      table { empty-cells: show; }
+    </style>
   </head>
   
   <body>
@@ -57,11 +64,13 @@
 	    <td> {{ r[2] }} </td>
 	    <td> {{ r[3] }} </td>
 	    <td> {{ r[4] }} </td>
+	    <td>
 	    {% for p in phil %}
 	    {% if p[1] == r[5] %}
-	    <td>{{ p[0] }}</td>
+	    {{ p[0] }}
 	    {% endif %}
 	    {% endfor %}
+	    </td>
 	  </tr>
 	  {% endfor %}
 	</tbody>

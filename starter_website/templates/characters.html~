@@ -9,7 +9,14 @@
       function myFunction() {
       alert("does this work?")
       }
+      <!-- Citation: stackoverflow.com/questions/2359805/using-javascript-to-check-if-a-html-table-cell-is-empty-->
+      function emptyCellCheck(el) {
+      return (/^(\s|&nbsp;)*$/.test(el.innerHTML);
+      }
     </script>
+    <style>
+      table { empty-cells: show; }
+    </style>
   </head>
   
   <body>
@@ -67,9 +74,6 @@
 	</tbody>
       </table>
       
-      
-      
-      <button type="button" onclick="myFunction()"> Try things </button>
       
       <div class="footer clearfix">
 	<div class="conatainer_12">

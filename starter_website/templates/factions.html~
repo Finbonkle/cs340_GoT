@@ -38,7 +38,7 @@
     <th>type</th>
     <th>strengths</th>
     <th>weaknesses</th>
-    <th>phil_id</th>
+    <th>philosophy</th>
   </thead>
   <tbody>
   {% for r in rows %}
@@ -47,7 +47,11 @@
     <td> {{ r[1] }} </td>
     <td> {{ r[2] }} </td>
     <td> {{ r[3] }} </td>
-    <td> {{ r[4] )) </td>
+    {% for p in phil %}
+    {% if p[1] == r[4] %}
+    <td> {{ p[0] }} </td>
+    {% endif %}
+    {% endfor %}
   </tr>
   {% endfor %}
   </tbody>
