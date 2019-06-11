@@ -18,7 +18,7 @@
   Alive: <input type="radio" onclick="javascript:deathCheck();"  id="showFormY" name="qAlive" value="yes" class="icheck">Yes
          <input type="radio" onclick="javascript:deathCheck();"  id="showFormN" name="qAlive" value="no" class="icheck">No<br>
   <div id="ifDead" style="visibility:hidden">
-    Manner of Death: <input id="death" type="text" name="MoD" value = "None"><br>
+    Manner of Death: <input id="death" type="text" name="MoD" value = "{{ chars[3] }}"><br>
   </div>
   Allegiance: <input type="text" name="alleg" value = "{{ chars[4] }}"><br>
   Portrayed by: <input type="text" name="portrayal" value = "{{ chars[5] }}"><br>
@@ -36,5 +36,7 @@
    </select><br>
   <input type="submit" value="Submit">
 </form>
+
+
 
 </html>

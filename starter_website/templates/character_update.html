@@ -1,10 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function deathCheck() {
+      if (document.getElementById('showFormY').checked) {
+      document.getElementById('ifDead').style.visibility = 'hidden';
+      }
+      else document.getElementById('ifDead').style.visibility = 'visible';
+      }
+    </script>
+  </head>
+
 <h3>Edit Character:</h3>
 <form id="character_update" action="/character_update/{{chars[0]}}" method="post">
   <input type="hidden" name="character_id" value = "{{ chars[0] }}">
   Name: <input type="text" name="name" value = "{{ chars[1] }}"><br>
-  Alive: <input type="text" name="alive" value = "{{ chars[2] }}"><br>
+  Alive: <input type="radio" onclick="javascript:deathCheck();"  id="showFormY" name="qAlive" value="1" class="icheck">Yes
+         <input type="radio" onclick="javascript:deathCheck();"  id="showFormN" name="qAlive" value="0" class="icheck">No<br>
+  <div id="ifDead" style="visibility:hidden">
+    Manner of Death: <input id="death" type="text" name="MoD" value = "None"><br>
+  </div>
   Allegiance: <input type="text" name="alleg" value = "{{ chars[4] }}"><br>
-  Manner of Death: <input type="text" name="MoD" value = "{{ chars[3] }}"><br>
   Portrayed by: <input type="text" name="portrayal" value = "{{ chars[5] }}"><br>
+  Philosophy: <select name="philosophy">
+    <!--display options in dropdown-->
+    {% for p in phils %}
+    {{ p[1] }}
+    {{ chars[6] }}
+    {% if p[1] == chars[6] %}
+    <option selected value="{{ p[1] }}">{{ p[0] }}</option>
+    {% else %}
+    <option value="{{ p[1] }}">{{ p[0] }}</option>
+    {% endif %}
+    {% endfor %}
+   </select><br>
   <input type="submit" value="Submit">
 </form>
+
+</html>

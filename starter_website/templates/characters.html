@@ -6,12 +6,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-      function myFunction() {
-      alert("does this work?")
-      }
-      <!-- Citation: stackoverflow.com/questions/2359805/using-javascript-to-check-if-a-html-table-cell-is-empty-->
-      function emptyCellCheck(el) {
-      return (/^(\s|&nbsp;)*$/.test(el.innerHTML);
+      function myFunction()
+      {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i=0; i < tr.length; i++)
+	{
+	  td = tr[i].getElementsByTagName("td")[0];
+	  if (td)
+	  {
+	    txtValue = td.textContent || td.innerText;
+	    if (txtValue.toUpperCase().indexOf(filter) > -1)
+	    {
+	      tr[i].style.display = "";
+	    }
+	    else
+	    {
+	      tr[i].style.display = "none";
+	    }
+	  }
+	}
       }
     </script>
     <style>
@@ -26,28 +44,12 @@
 	<h1>This is the character page.</h1>
       </div>
       
-      <!--
-	  <div class="intro">
-	    <p align="middle">In the final implementation, selecting a character from the list pulls up information about them on the right side of the page</p>
-	  </div>
-    </div>
-    
-    <div>
-      <form action="">
-	<legend>Please select the character you wish to learn about:</legend>
-	<input type="radio" name="charselect" value="robertbaratheon">Robert Baratheon<br>
-	<input type="radio" name="charselect" value="tywinlannister">Tywin Lannister<br>
-	<input type="radio" name="charselect" value="cerseilannister">Cersei Lannister<br>
-	<input type="radio" name="charselect" value="jamielannister">Jamie Lannister<br>
-	<input type="radio" name="charselect" value="tyrionlannister">Tyrion Lannister<br>
-      </form>
-    </div>
-    
-    -->
-      
-      
       <h3>Character Data</h3>
-      <table border='1'>
+
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Character Names...">
+      <br><br>
+
+      <table id="myTable" border='1'>
 	<thead>
 	  <th>Name</th>
 	  <th>Alive?</th>

@@ -26,26 +26,6 @@
 	<h1>This is the character page.</h1>
       </div>
       
-      <!--
-	  <div class="intro">
-	    <p align="middle">In the final implementation, selecting a character from the list pulls up information about them on the right side of the page</p>
-	  </div>
-    </div>
-    
-    <div>
-      <form action="">
-	<legend>Please select the character you wish to learn about:</legend>
-	<input type="radio" name="charselect" value="robertbaratheon">Robert Baratheon<br>
-	<input type="radio" name="charselect" value="tywinlannister">Tywin Lannister<br>
-	<input type="radio" name="charselect" value="cerseilannister">Cersei Lannister<br>
-	<input type="radio" name="charselect" value="jamielannister">Jamie Lannister<br>
-	<input type="radio" name="charselect" value="tyrionlannister">Tyrion Lannister<br>
-      </form>
-    </div>
-    
-    -->
-      
-      
       <h3>Character Data</h3>
       <table border='1'>
 	<thead>
@@ -64,11 +44,13 @@
 	    <td> {{ r[2] }} </td>
 	    <td> {{ r[3] }} </td>
 	    <td> {{ r[4] }} </td>
+	    <td>
 	    {% for p in phil %}
 	    {% if p[1] == r[5] %}
-	    <td>{{ p[0] }}</td>
+	    {{ p[0] }}
 	    {% endif %}
 	    {% endfor %}
+	    </td>
 	  </tr>
 	  {% endfor %}
 	</tbody>

@@ -13,6 +13,8 @@
 	<td> {{ r[1] }} </td>
 	<td> <input type='button' name='Update' value='Update' 
 		    onclick="window.location = '/character_update/{{r[1]}}'"> </td>
+	<td> <input type='button' name='Delete' value='Delete'
+		    onclick="window.location = '/delete_char/{{r[1]}}'"> </td>
       </tr>
       {% endfor %}
     </tbody>

@@ -21,7 +21,6 @@ def char_page():
     query = "SELECT name, alive, mannerOfDeath, allegiance, portrayal, phil_id from Characters;"
     result = execute_query(db_connection, query).fetchall();
 
-
     phil_query = "SELECT name, id from Philosophies"
     phil_results = execute_query(db_connection, phil_query).fetchall();
 

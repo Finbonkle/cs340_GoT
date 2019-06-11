@@ -5,6 +5,17 @@
     <title>Creation Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Citation: jsfiddle.net/QAaHP/12/ -->
+    <script type="text/javascript">
+      function deathCheck() {
+      if (document.getElementById('showFormY').checked) {
+      document.getElementById('ifDead').style.visibility = 'hidden';
+      }
+      else document.getElementById('ifDead').style.visibility = 'visible';
+      }
+    </script>
+      
+
   </head>
   
   <body>
@@ -13,38 +24,16 @@
       <div id="pageTitle" align="middle">
 	<h1>This is the character creation page.</h1>
       </div>
-<!--      <div class="intro">
-	<p align="middle">In the final implementation, filling out the fields below will add a character with the submitted attributes.</p>
-      </div> -->
     </div>
-<!--    
-    <div>
-      <form action="">
-	<legend>Please enter the following information for character creation:</legend>
-	<input id="charname" type="input" class="form-control" placeholder="Name" name="">
-	<br>
-	<select name="aliveofdead">
-	  <option value="alive">Alive</option>
-	  <option value="dead">Dead</option>
-	</select>
-	<br>
-	<input id="chardeath" type="input" class="form-control" placeholder="Manner of Death" name="">
-	<br>
-	<input id="charorigin" type="input" class="form-control" placeholder="Origin" name="">
-	<br>
-	<input id="charactor" type="input" class="form-control" placeholder="Portrayed By" name="">
-	<br>
-	<button type="button" class="btn btn-success" onclink="">Submit Info</button>
-      </form>
-    </div>
--->
 
 <h3>Add a Character</h3>
-<h4>Note that this page currently requires all forms to be filled out</h4>
 <form id="addcharacter" action="/create" method="post">
   Name: <input type="text" name="name"><br>
-  Alive: <input type="radio" name="qAlive" value="yes">Yes<input type="radio" name="qAlive" value="no">No<br>
-  Manner of Death: <input type="text" name="mannerOfDeath"><br>
+  Alive: <input type="radio" onclick="javascript:deathCheck();" id="showFormY" name="qAlive" value="yes" class="iCheck">Yes
+         <input type="radio" onclick="javascript:deathCheck();" id="showFormN" name="qAlive" value="no" class="iCheck">No<br>
+  <div id="ifDead" style="visability:hidden">
+    Manner of Death: <input id="death" type="text" name="mannerOfDeath"><br>
+  </div>
   Allegiance: <input type="text" name="allegiance"><br>
   Portrayed by: <input type="text" name="portrayal"><br>
   Philosophy: <select name="phil_id">
