@@ -13,16 +13,7 @@
 				<h1>This is the index page for Project Step 3. </h1>
 			</div>
 			<div class="intro">
-			  <p align="middle">Below you can find the links to the other pages in our project. </p>
-			  <p align="middle">You can reference this page to quickly find the required SQL functionalities</p>
-			  <p align="middle">Please refresh pages to allow the changes to take effect.</p>
-			  <p align="left">Characters: SELECT</p>
-			  <p align="left">Factions: SELECT, INSERT</p>
-			  <p align="left">Seasons: SELECT, INSERT</p>
-			  <p align="left">Religions and Philosophies: SELECT, INSERT</p>
-			  <p align="left">Add a New Character: INSERT</p>
-			  <p align="left">Edit a Character: UPDATE, DELETE</p>
-			  <p align="left">Search for a Character: FILTER (please note this requires exact spelling of a character's name, refer to the Characters page)</p>
+				<p align="middle">Below you can find the links to the other static pages in our project. </p>
 			</div>
 		</div>
 		<div class="footer clearfix">

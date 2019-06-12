@@ -14,28 +14,11 @@
 	<h1>This is the Religions and Philosophies page.</h1>
       </div>
       
-      <!--
-	  
-	  <div class="intro">
-	    <p align="middle">In the final implementation, selecting an option from the list pulls up information on the right side of the page</p>
-	  </div>
-    </div>
     
-    <div>
-      <form action="">
-	<legend>Please select the character you wish to learn about:</legend>
-	<input type="radio" name="philselect" value="oldgodsoftheforest">Old Gods of the Forest<br>
-	<input type="radio" name="philselect" value="faithoftheseven">Faith of the Seven<br>
-	<input type="radio" name="philselect" value="drownedgod">The Drowned God<br>
-	<input type="radio" name="philselect" value="lordoflight">The Lord of Light<br>
-      </form>
-    </div>
-    
-    -->
-      
       <h3>Religion and Philosophy Data</h3>
       <table border='1'>
 	<thead>
+	  <th>ID</th>
 	  <th>name</th>
 	  <th>type</th>
 	  <th>supernatural</th>
@@ -43,20 +26,21 @@
 	<tbody>
 	  {% for r in rows %}
 	  <tr>
-	    <td> {{ r[0] }} </td>
-	    <td> {{ r[1] }) </td>
-	    <td> {{ r[2] }} </td>
+	    <td align="center"> {{ r[3] }} </td>
+	    <td align="center"> {{ r[0] }} </td>
+	    <td align="center"> {{ r[1] }} </td>
+	    <td align="center"> {{ r[2] }} </td>
 	  </tr>
 	  {% endfor %}
 	</tbody>
       </table>
       
 
-      <div class="footer clearfix">
-	<div class="conatainer_12">
-	  <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
-	</div>
-      </div>
+		<div class="footer clearfix">
+			<div class="container_12">
+				<p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="seasons">Seasons</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a> | <a href="search">Search for a Character</a></p>
+			</div>
+		</div>
       
 
   </body>

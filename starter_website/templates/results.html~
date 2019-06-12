@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-with, initial-scale=1">
+    <script>
+    </script>
+    </head>
+
+  <body>
+    <h3>Search Results</h3>
+    <div>
+      <table id="resultsTable" border='1'>
+	<thead>
+	  <th>Name</th>
+	</thead>
+	<tbody>
+	  {% for c in chars %}
+	  <tr>
+	    <th> {{ c[0] }} </th>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </table>
+    </div>
+    
+  </body>
+</html>

@@ -14,22 +14,8 @@
 	<h1>This is the factions page.</h1>
       </div>
 
-<!--
-      <div class="intro">
-	<p align="middle">In the final implementation, selecting a faction from the list pulls up information about it on the right side of the page</p>
-      </div>
-    </div>
-    
-    <div>
-      <form action="">
-	<legend>Please select the faction you wish to learn about:</legend>
-	<input type="radio" name="factselect" value="housestark">House Stark<br>
-	<input type="radio" name="factselect" value="houselannister">House Lannister<br>
-	<input type="radio" name="factselect" value="childrenoftheforest">Children of the Forest<br>
-	<input type="radio" name="factselect" value="others">The Others<br>
-      </form>
-    </div>
--->
+
+
 
 <h3>GoT Factions</h3>
 <table border='1'>
@@ -41,29 +27,75 @@
     <th>philosophy</th>
   </thead>
   <tbody>
-  {% for r in rows %}
+  {% for r in facs %}
   <tr>
-    <td> {{ r[0] }} </td>
     <td> {{ r[1] }} </td>
     <td> {{ r[2] }} </td>
     <td> {{ r[3] }} </td>
+    <td> {{ r[4] }} </td>
+    <td>
     {% for p in phil %}
-    {% if p[1] == r[4] %}
-    <td> {{ p[0] }} </td>
+    {% if p[1] == r[5] %}
+    {{ p[0] }}
     {% endif %}
     {% endfor %}
+    </td>
   </tr>
   {% endfor %}
   </tbody>
 </table>
 
+<h3>Characters and Factions</h3>
+<table border='1'>
+  <tr>
+    <td></td>
+    {% for f in facs %} <!-- name the top of each column -->
+    <th>{{ f[1] }}</th> 
+    {% endfor %}
+  </tr>
+  {% for c in char %} <!-- name the start of each row -->
+  <tr>
+    <th>{{ c[1] }}</th>
+    {% for n in facs %} <!-- now for each faction -->
+    <td align="center">
+      {% for s in fnum %} <!-- compare to the Factions_Characters table-->
+      {% if s[0] == n[0] %} <!-- does this season appear in Factions_Characters? -->
+      {% if s[1] == c[0] %} <!-- does the character match the row? -->
+      X
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+    </td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+<h4>Add a Character to a Faction</h4>
+<form id="charFact" action="/factions" method="post">
+  Add Character: <select name="addChar">
+    {% for x in char %}
+    <option value="{{ x[0] }}">{{ x[1] }}</option>
+    {% endfor %}
+  </select>
+  <br>
+  to Faction: <select name="addFact">
+    {% for y in facs %}
+    <option value="{{ y[0] }}">{{ y[1] }}</option>
+    {% endfor %}
+  </select>
+  <input type="submit" value="submit">
+</form>
+
+<a href="newFaction">Add a new faction here!</a>
+
     
-    <div class="footer clearfix">
-      <div class="conatainer_12">
-		<p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
-		</div>
-    </div>
-    
+<div class="footer clearfix">
+  <div class="container_12">
+    <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="seasons">Seasons</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a> | <a href="search">Search for a Character</a></p>
+  </div>
+</div>
+
     
   </body>
   

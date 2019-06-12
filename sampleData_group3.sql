@@ -172,7 +172,6 @@ CREATE TABLE `Characters` (
   `name` varchar(255) NOT NULL,
   `alive` tinyint(1) DEFAULT NULL,
   `mannerOfDeath` varchar(255) DEFAULT NULL,
-  `allegiance` varchar(255) DEFAULT NULL,
   `portrayal` varchar(255) DEFAULT NULL,
   `phil_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -181,15 +180,15 @@ CREATE TABLE `Characters` (
 -- Dumping data for table `Characters`
 --
 
-INSERT INTO `Characters` (`id`, `name`, `alive`, `mannerOfDeath`, `allegiance`, `portrayal`, `phil_id`) VALUES
-(1, 'Jaime Lannister', 1, NULL, 'House Lannister', 'Nikolaj Coster-Waldau', NULL),
-(2, 'Cersei Lannister', 1, NULL, 'House Lannister', 'Lena Headey', NULL),
-(3, 'Daenerys Targaryen', 1, NULL, 'House Targaryen', 'Emilia Clarke', NULL),
-(4, 'Jorah Mormont', 0, 'Stabbed multiple times by wights', 'Queensguard', 'Iain Glen', 1),
-(5, 'Jon Snow', 1, NULL, 'House Stark', 'Kit Harington', 1),
-(6, 'Sansa Stark', 1, NULL, 'House Stark', 'Sophie Turner', 2),
-(7, 'Arya Stark', 1, NULL, 'House Stark', 'Maisie Williams', 3),
-(8, 'Theon Greyjoy', 0, 'Impaled with a broken spear by the Night King', 'House Greyjoy', 'Alfie Allen', 4);
+INSERT INTO `Characters` (`id`, `name`, `alive`, `mannerOfDeath`, `portrayal`, `phil_id`) VALUES
+(1, 'Jaime Lannister', 1, NULL, 'Nikolaj Coster-Waldau', NULL),
+(2, 'Cersei Lannister', 1, NULL, 'Lena Headey', NULL),
+(3, 'Daenerys Targaryen', 1, NULL, 'Emilia Clarke', NULL),
+(4, 'Jorah Mormont', 0, 'Stabbed multiple times by wights', 'Iain Glen', 1),
+(5, 'Jon Snow', 1, NULL, 'Kit Harington', 1),
+(6, 'Sansa Stark', 1, NULL, 'Sophie Turner', 2),
+(7, 'Arya Stark', 1, NULL, 'Maisie Williams', 3),
+(8, 'Theon Greyjoy', 0, 'Impaled with a broken spear by the Night King', 'Alfie Allen', 4);
 
 -- --------------------------------------------------------
 
@@ -232,10 +231,10 @@ INSERT INTO `Factions` (`id`, `name`, `type`, `strength`, `weakness`, `phil_id`)
 (1, 'Lannisters', 'House', 'Wealth', 'Pride', 2),
 (2, 'Targaryens', 'House', 'Dragons', 'Lack of Resources', 2),
 (3, 'Mormonts', 'House', 'Effective Tactics', 'Underhanded Tactics', 1),
-(4, 'Greyjoys', 'House', 'Sailing', 'Need for Conquest', NULL),
-(5, 'Faceless Men', 'Cult', 'Magic', 'Small Numbers', 1),
+(4, 'Greyjoys', 'House', 'Sailing', 'Need for Conquest', 4),
+(5, 'Faceless Men', 'Cult', 'Magic', 'Small Numbers', 3),
 (6, 'Brotherhood without Banners', 'Militia', 'Loyalty', 'Lack of Purpose', 4),
-(7, 'Starks', 'House', 'Knowledge of Winter', 'Honor', 4);
+(7, 'Starks', 'House', 'Knowledge of Winter', 'Honor', 1);
 
 -- --------------------------------------------------------
 
@@ -245,7 +244,7 @@ INSERT INTO `Factions` (`id`, `name`, `type`, `strength`, `weakness`, `phil_id`)
 
 CREATE TABLE `Factions_Characters` (
   `fact_id` int(11) NOT NULL,
-  `char_id` int(11) NOT NULL
+  `char_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -253,16 +252,24 @@ CREATE TABLE `Factions_Characters` (
 --
 
 INSERT INTO `Factions_Characters` (`fact_id`, `char_id`) VALUES
+(1, NULL),
+(2, NULL),
+(3, NULL),
+(4, NULL),
+(5, NULL),
+(6, NULL),
+(7, NULL),
 (1, 1),
 (1, 2),
 (2, 3),
-(3, 4),
-(7, 5),
 (2, 5),
-(7, 6),
+(3, 4),
+(4, 8),
 (5, 7),
+(7, 5),
+(7, 6),
 (7, 7),
-(4, 8);
+(7, 8);
 
 -- --------------------------------------------------------
 
@@ -290,14 +297,14 @@ INSERT INTO `Philosophies` (`id`, `name`, `type`, `supernatural`) VALUES
 
 -- --------------------------------------------------------
 
-/*
+
 --
 -- Table structure for table `Seasons`
 --
 
 CREATE TABLE `Seasons` (
   `id` int(11) NOT NULL,
-  `char_id` int(11) NOT NULL
+  `char_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -329,7 +336,7 @@ INSERT INTO `Seasons` (`id`, `char_id`) VALUES
 (8, 1),
 (8, 2),
 (8, 3);
-*/
+
 --
 -- Indexes for dumped tables
 --
@@ -381,6 +388,7 @@ ALTER TABLE `Factions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `phil_id` (`phil_id`);
 
+
 --
 -- Indexes for table `Factions_Characters`
 --
@@ -394,14 +402,13 @@ ALTER TABLE `Factions_Characters`
 ALTER TABLE `Philosophies`
   ADD PRIMARY KEY (`id`);
 
-/*
 --
 -- Indexes for table `Seasons`
 --
 ALTER TABLE `Seasons`
   ADD PRIMARY KEY (`id`,`char_id`),
   ADD KEY `char_id` (`char_id`);
-*/
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -428,7 +435,7 @@ ALTER TABLE `bsg_planets`
 -- AUTO_INCREMENT for table `Characters`
 --
 ALTER TABLE `Characters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `diagnostic`
@@ -440,13 +447,13 @@ ALTER TABLE `diagnostic`
 -- AUTO_INCREMENT for table `Factions`
 --
 ALTER TABLE `Factions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Philosophies`
 --
 ALTER TABLE `Philosophies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -477,6 +484,7 @@ ALTER TABLE `Characters`
 ALTER TABLE `Factions`
   ADD CONSTRAINT `phil_id` FOREIGN KEY (`phil_id`) REFERENCES `Philosophies` (`id`);
 
+/*
 --
 -- Constraints for table `Factions_Characters`
 --
@@ -484,7 +492,7 @@ ALTER TABLE `Factions_Characters`
   ADD CONSTRAINT `fact_char_id` FOREIGN KEY (`char_id`) REFERENCES `Characters` (`id`),
   ADD CONSTRAINT `fact_id` FOREIGN KEY (`fact_id`) REFERENCES `Factions` (`id`);
 
-/*
+
 --
 -- Constraints for table `Seasons`
 --

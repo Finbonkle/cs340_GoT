@@ -6,13 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-      function myFunction() {
-      alert("does this work?")
-      }
-      <!-- Citation: stackoverflow.com/questions/2359805/using-javascript-to-check-if-a-html-table-cell-is-empty-->
-      function emptyCellCheck(el) {
-      return (/^(\s|&nbsp;)*$/.test(el.innerHTML);
-      }
     </script>
     <style>
       table { empty-cells: show; }
@@ -27,26 +20,27 @@
       </div>
       
       <h3>Character Data</h3>
-      <table border='1'>
+
+      <table id="myTable" border='1'>
 	<thead>
+	  <th>ID</th>
 	  <th>Name</th>
 	  <th>Alive?</th>
 	  <th>Manner of Death</th>
-	  <th>Allegiance</th>
 	  <th>Portrayed by</th>
 	  <th>Philosophy</th>
 	</thead>
 	<tbody>
 	  {% for r in rows %}
 	  <tr>
+	    <td> {{ r[5] }} </td>
 	    <td> {{ r[0] }} </td>
 	    <td> {{ r[1] }} </td>
 	    <td> {{ r[2] }} </td>
 	    <td> {{ r[3] }} </td>
-	    <td> {{ r[4] }} </td>
 	    <td>
 	    {% for p in phil %}
-	    {% if p[1] == r[5] %}
+	    {% if p[1] == r[4] %}
 	    {{ p[0] }}
 	    {% endif %}
 	    {% endfor %}
@@ -58,8 +52,8 @@
       
       
       <div class="footer clearfix">
-	<div class="conatainer_12">
-	  <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a></p>
+	<div class="container_12">
+	  <p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="seasons">Seasons</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a> | <a href="search">Search for a Character</a></p>
 	</div>
       </div>
       

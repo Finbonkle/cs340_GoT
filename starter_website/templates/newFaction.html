@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Faction Creation Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+    </script>
+  </head>
+  
+  <body>
+    <div class="main-story container">
+      <div id="pageTitle" align="middle">
+	<h1>This is the faction creation page.</h1>
+      </div>
+    </div>
+    
+    <h3>Add a Faction</h3>
+    <form id="addfaction" action="/newFaction" method="post">
+      Name: <input type="text" name="name"><br>
+      Type: <input type="text" name="type"><br>
+      Strength: <input type="text" name="strength"><br>
+      Weakness: <input type="text" name="weakness"><br>
+      Philosophy: <select name="phil_id">
+	<!-- display all philosophies inside this dropdown -->
+	{% for p in phils%}
+	<option value="{{ p[0] }}">{{ p[1] }}</option>
+	{% endfor %}
+      </select><br>
+      <input type="submit" value="submit">
+    </form>
+    <br>
+    
+    
+    <div class="footer clearfix">
+      <div class="container_12">
+	<p class="grid_12" align="middle"><a href="index">Home Page</a> | <a href="characters">Characters</a> | <a href="factions">Factions</a> | <a href="seasons">Seasons</a> | <a href="philosophies">Religions and Philosophies</a> | <a href="create">Add a New Character</a> | <a href="edit">Edit a Character</a> | <a href="search">Search for a Character</a></p>
+      </div>
+    </div>
+    
+    
+  </body>
+  
+</html>
